@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { required } from "nodemon/lib/config";
 import { home } from "nodemon/lib/utils";
 
-const alumniSchema = new mongoose.Schema({
+const studentSchema = new mongoose.Schema({
   // personal details
   name: {
     type: String,
@@ -10,22 +10,22 @@ const alumniSchema = new mongoose.Schema({
     required: true,
     maxLength: 32,
   },
-  gender: {
-    type: String,
-    trim: true,
-  },
   email: {
     type: String,
     trim: true,
     required: true,
-    unique: true,
   },
   password: {
     type: String,
     required: true,
   },
+  registrationNumber: {
+    type: String,
+    trim: true,
+  },
   phone: {
     type: String,
+    required: true,
     trim: true,
   },
 
@@ -45,37 +45,6 @@ const alumniSchema = new mongoose.Schema({
     required: true,
   },
 
-  // after registration details
-  linkedIn: {
-    type: String,
-    trim: true,
-  },
-
-  // location details
-  zipCode: {
-    type: String,
-    trim: true,
-  },
-  state: {
-    type: String,
-    trim: true,
-  },
-  city: {
-    type: String,
-    trim: true,
-  },
-
-  // professional details
-  currentOrganization: {
-    type: String,
-    trim: true,
-  },
-  designation: {
-    type: String,
-    trim: true,
-  },
-
-
   isAdmin: {
     type: Boolean,
     default: false,
@@ -92,18 +61,6 @@ const alumniSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-
-
-  // additional details
-  homeTown: {
-    type: String,
-    trim: true,
-  },
-  profilePicture: {
-    type: String,
-    trim: true,
-  },
-
 });
 
-export default mongoose.model("Alumni", alumniSchema);
+export default mongoose.model("Student", studentSchema);
