@@ -1,4 +1,4 @@
-# 5TARK5 - Alumni Connect: A Centralized Alumni Management Platform
+# 5TARK5 - Alum.io : A Centralized Alumni Management Platform
 
 A modern, scalable platform designed to bridge the gap between educational institutions and their graduates, fostering a vibrant and engaged alumni community.
 
