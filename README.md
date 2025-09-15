@@ -1,3 +1,6 @@
+<img width="232" align="right" height="118" alt="Picture2" src="https://github.com/user-attachments/assets/b2907221-a645-47d5-80c8-7e4e21c46590" />
+
+
 # 5TARK5 - Alum.io : A Centralized Alumni Management Platform
 
 A modern, scalable platform designed to bridge the gap between educational institutions and their graduates, fostering a vibrant and engaged alumni community.
@@ -6,24 +9,14 @@ A modern, scalable platform designed to bridge the gap between educational insti
 
 ## 📜 Table of Contents
 
-- [About The Project](#about-the-project)
-  - [Problem Statement](#problem-statement)
-  - [Impact](#impact)
-- [👥 Stakeholders](#-stakeholders)
-- [🧑‍💻 Our Team](#-our-team)
-- [📄 License](#-license)
+<details> <summary> <strong>Problem Statement</strong></summary>
 
----
+  - Most educational institutions do not have a reliable or centralized system to manage their alumni data. Once students graduate, their contact information, academic records, and career updates are often scattered across multiple platforms or lost entirely. In many cases, alumni communication is restricted to informal WhatsApp groups or outdated mailing lists, making long-term engagement difficult.
 
-## 📖 About The Project
+  - This lack of a structured system limits the potential of alumni relationships. Institutions miss opportunities to involve alumni in events, mentoring, internships, or fundraising. In a digitally connected world, the absence of a proper alumni management system creates a significant gap in outreach and growth.
 
-### Problem Statement
-
-Most educational institutions do not have a reliable or centralized system to manage their alumni data. Once students graduate, their contact information, academic records, and career updates are often scattered across multiple platforms or lost entirely. In many cases, alumni communication is restricted to informal WhatsApp groups or outdated mailing lists, making long-term engagement difficult.
-
-This lack of a structured system limits the potential of alumni relationships. Institutions miss opportunities to involve alumni in events, mentoring, internships, or fundraising. In a digitally connected world, the absence of a proper alumni management system creates a significant gap in outreach and growth.
-
-### Impact
+</details>
+<details> <summary> <strong>Impact</strong></summary>
 
 Solving this problem will:
 
@@ -32,9 +25,8 @@ Solving this problem will:
 - 💰 **Enhance** fundraising potential through better alumni outreach.
 - 📈 **Increase** institutional credibility and community building.
 
----
-
-## 👥 Stakeholders
+</details>
+<details> <summary> <strong>👥 Stakeholders</strong></summary>
 
 The platform is designed to benefit a wide range of users:
 
@@ -44,9 +36,8 @@ The platform is designed to benefit a wide range of users:
 -   College/University Management Bodies
 -   Employers and Recruiters
 
----
-
-## 🧑‍💻 Our Team
+</details>
+<details> <summary> <strong>🧑‍💻 Our Team</strong></summary>
 
 This project is proudly developed by **Team 5TARK5**.
 
@@ -58,3 +49,6 @@ This project is proudly developed by **Team 5TARK5**.
 | Tirth    | 20244125         |
 | Yug      | 20243193         |
 | Nikita   | 20243530         |
+</details>
+
+---
