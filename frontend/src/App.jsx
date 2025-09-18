@@ -1,8 +1,12 @@
-
+// import Institutelogin from "./components/Institutelogin";
+// import InstituteRegister from "./components/InstituteRegister";
+import InstituteDashboard from "./components/InstituteDashboard";
 const App = () => {
   return (
     <>
-      <h1 className="text-3xl font-bold">Hello World!</h1>
+      {/* <Institutelogin/>
+      <InstituteRegister/> */}
+      <InstituteDashboard/>
     </>
   );
 };
