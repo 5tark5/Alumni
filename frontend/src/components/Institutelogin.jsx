@@ -152,7 +152,7 @@ const AlumioLogo = () => (
 );
 
 /* ---------------- Main App ---------------- */
-export default function App() {
+export default function InstituteLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

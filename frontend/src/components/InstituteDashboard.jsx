@@ -100,7 +100,12 @@ export default function InstituteDashboard() {
             <div className="flex items-center space-x-2 sm:space-x-4">
                 <div className="relative hidden md:block">
                     <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                    <input type="text" placeholder="Search..." className="bg-slate-800 border border-slate-700 rounded-lg pl-10 pr-4 py-2 w-48 lg:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <input
+                      type="text"
+                      placeholder="Search..."
+                      aria-label="Search"
+                      className="bg-slate-800 border border-slate-700 rounded-lg pl-10 pr-4 py-2 w-48 lg:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
                 </div>
                 <button className="p-2 hover:bg-slate-700/50 rounded-full">
                     <BellIcon />

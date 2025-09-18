@@ -1,12 +1,14 @@
-// import Institutelogin from "./components/Institutelogin";
-// import InstituteRegister from "./components/InstituteRegister";
-import InstituteDashboard from "./components/InstituteDashboard";
+import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   return (
     <>
-      {/* <Institutelogin/>
-      <InstituteRegister/> */}
-      <InstituteDashboard/>
+      <ToastContainer />
+      <main className="py-3">
+        <Outlet />
+      </main>
     </>
   );
 };
