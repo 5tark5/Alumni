@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db.js");
 dotenv.config();
 
-const instituteLogin = require("./routes/instituteLogin.js");
+const instituteLogin = require("./routes/instituteRoute.js");
 
 
 const port = process.env.PORT || 5000;
