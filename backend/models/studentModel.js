@@ -1,6 +1,5 @@
-import mongoose from "mongoose";
-import { required } from "nodemon/lib/config";
-import { home } from "nodemon/lib/utils";
+const mongoose = require("mongoose");
+
 
 const studentSchema = new mongoose.Schema({
   // personal details
@@ -13,15 +12,13 @@ const studentSchema = new mongoose.Schema({
   email: {
     type: String,
     trim: true,
+    unique : true,
     required: true,
   },
   password: {
     type: String,
+    minLength : 8,
     required: true,
-  },
-  registrationNumber: {
-    type: String,
-    trim: true,
   },
   phone: {
     type: String,
@@ -44,7 +41,6 @@ const studentSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-
   isAdmin: {
     type: Boolean,
     default: false,
@@ -63,4 +59,5 @@ const studentSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("Student", studentSchema);
+const Student = mongoose.model("Student", studentSchema); 
+export default Student ;

@@ -1,16 +1,17 @@
 // packages 
-import express from 'express';
-import dotenv from 'dotenv';
-import path from 'path';
-import cookieParser from 'cookie-parser';
-
-// utils
-import connectDB from './config/db.js';
-
+const express = require("express");
+const dotenv = require("dotenv");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const connectDB = require("./config/db.js");
 dotenv.config();
+
+const instituteLogin = require("./routes/instituteRoute.js");
+
+
 const port = process.env.PORT || 5000;
 
-connectDB();
+// connectDB();
 
 const app = express();
 
@@ -22,6 +23,8 @@ app.use(cookieParser());
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
+
+app.use('/institute', instituteLogin);
 
 
 app.listen(port, () => {
