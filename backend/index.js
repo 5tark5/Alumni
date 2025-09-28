@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import path from "path";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
+import cors from "cors"; 
 
 // routes
 import instituteRoute from "./routes/instituteRoute.js";
@@ -16,6 +17,10 @@ connectDB();
 const app = express();
 
 // Middleware
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
