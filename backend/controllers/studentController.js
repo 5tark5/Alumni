@@ -1,4 +1,4 @@
-import Student from '../models/Student.js';
+import Student from "../models/studentModel.js";
 import bcrypt from 'bcryptjs';
 import asyncHandler from '../middlewares/asyncHandler.js';
 import createToken from '../utils/createToken.js';
@@ -6,7 +6,7 @@ import createToken from '../utils/createToken.js';
 const signupStudent = asyncHandler(async (req, res) => {
     const { name, studentPassword, studentEmail, studentPhone } = req.body;
     const existing = await Student.find({ studentEmail });
-    if(existing){
+    if(!existing){
         return res.status(400).json({ message: "Student Already Exists" });
     }
     const hashedPassword = await bcrypt.hash(studentPassword, 10);

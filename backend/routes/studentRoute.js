@@ -1,10 +1,10 @@
 import { authenticate } from '../middlewares/studentMiddleware.js';
 
-const express = require('express');
+import express from 'express';
 
 const router = express.Router();
 
-const { signupStudent, loginStudent, logoutStudent, updateCurrentStudent, getCurrentStudent } = require('../controllers/studentController');
+import { signupStudent, loginStudent, logoutStudent, updateCurrentStudent, getCurrentStudent } from "../controllers/studentController.js"
 
 router
     .route('/signup')
@@ -20,4 +20,4 @@ router
     .get(getCurrentStudent,authenticate)
     .put(updateCurrentStudent,authenticate);    
 
-export default Router;
+export default router;
