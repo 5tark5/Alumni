@@ -8,18 +8,18 @@ const studentSchema = new mongoose.Schema({
     required: true,
     maxLength: 32,
   },
-  email: {
+  studentEmail: {
     type: String,
     trim: true,
     unique : true,
     required: true,
   },
-  password: {
+  studentPassword : {
     type: String,
     minLength : 8,
     required: true,
   },
-  phone: {
+  studentPhone : {
     type: String,
     required: true,
     trim: true,
@@ -29,16 +29,16 @@ const studentSchema = new mongoose.Schema({
   degree: {
     type: String,
     trim: true,
-    required: true,
+    //required: true,
   },
   branch: {
     type: String,
     trim: true,
-    required: true,
+    //required: true,
   },
   graduationYear: {
     type: Number,
-    required: true,
+    //required: true,
   },
   isAdmin: {
     type: Boolean,
