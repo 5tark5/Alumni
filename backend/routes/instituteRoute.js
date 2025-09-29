@@ -1,22 +1,23 @@
-const express = require("express");
-const Institute = require("../models/institueModel");
-const { signupInstitute ,loginInstitute } = require("../controllers/insituteController");
+import express from "express";
+import { signupInstitute, loginInstitute, logoutInstitute, updateCurrentInstitute,getCurrentInstitute } from "../controllers/insituteController.js";
+import {authenticate} from "../middlewares/instituteMiddleware.js";
 
 const router = express.Router();
 
-router.route('/login')
-    .get((req,res)=> {
-        console.log("Render to Institute Login Page");
-        res.send("Render to Institute Login Page")
-    })
+router
+  .route("/")
+  .post(signupInstitute);
+
+router
+    .route("/login")
     .post(loginInstitute);
 
-router.route('/signup')
-    .get((req,res)=> {
-        console.log("Render to Institute SignUp Page");
-        res.send("Render to Institute SignUp Page")
-    })
-    .post(signupInstitute);
+router
+    .post("/logout", logoutInstitute);
 
+router
+  .route("/profile")
+  .get(authenticate, getCurrentInstitute)
+  .put(authenticate, updateCurrentInstitute);
 
-module.exports = router;
+export default router;

@@ -1,6 +1,4 @@
-const mongoose = require("mongoose");
-
-
+import mongoose from "mongoose";
 
 const alumniSchema = new mongoose.Schema({
   // personal details

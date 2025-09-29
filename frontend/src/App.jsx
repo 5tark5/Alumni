@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <ToastContainer />
-      <main className="py-3">
+      <main>
         <Outlet />
       </main>
     </>

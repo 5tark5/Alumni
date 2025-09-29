@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-
+import mongoose from "mongoose";
 const recruiterSchema = new mongoose.Schema({
     companyName: {
         type: String,

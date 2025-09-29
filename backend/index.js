@@ -1,32 +1,38 @@
-// packages 
-const express = require("express");
-const dotenv = require("dotenv");
-const path = require("path");
-const cookieParser = require("cookie-parser");
-const connectDB = require("./config/db.js");
+// packages
+import express from "express";
+import dotenv from "dotenv";
+import path from "path";
+import cookieParser from "cookie-parser";
+import connectDB from "./config/db.js";
+import cors from "cors"; 
+
+// routes
+import instituteRoute from "./routes/instituteRoute.js";
+
 dotenv.config();
-
-const instituteLogin = require("./routes/instituteRoute.js");
-
 
 const port = process.env.PORT || 5000;
 
-// connectDB();
-
+connectDB();
 const app = express();
 
+// Middleware
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
+// Routes
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.use('/institute', instituteLogin);
+app.use('/institute', instituteRoute);
 
-
+// Server startup
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
