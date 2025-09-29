@@ -70,42 +70,27 @@ const logoutInstitute = asyncHandler(async(req,res)=>{
   res.status(200).json({ message: "Logged out successfully" });
 })
 
-const updateCurrentInstitute = asyncHandler(async (req, res) => {
+// ✅ Accepts and saves the new profileImage URL
+// In controllers/instituteController.js
+
+// --- GET CURRENT INSTITUTE PROFILE ---
+const getCurrentInstitute = asyncHandler(async (req, res) => {
+  // The institute ID is attached to req.institute by the auth middleware
   const institute = await Institute.findById(req.institute._id);
 
   if (institute) {
-    if ( req.body.instituteEmail && req.body.instituteEmail !== institute.instituteEmail ) {
-      const emailExists = await Institute.findOne({
-        instituteEmail: req.body.instituteEmail,
-      });
-      if (emailExists) {
-        res.status(400);
-        throw new Error("Email is already in use");
-      }
-    }
-
-    institute.name = req.body.name || institute.name;
-    institute.instituteEmail =
-      req.body.instituteEmail || institute.instituteEmail;
-    institute.institutePhone =
-      req.body.institutePhone || institute.institutePhone;
-
-    if (req.body.institutePassword) {
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(
-        req.body.institutePassword,
-        salt
-      );
-      institute.institutePassword = hashedPassword;
-    }
-
-    const updatedInstitute = await institute.save();
-
     res.json({
-      name: updatedInstitute.name,
-      instituteEmail: updatedInstitute.instituteEmail,
-      institutePhone: updatedInstitute.institutePhone,
-      message: "Profile updated successfully",
+      _id: institute._id,
+      name: institute.name,
+      instituteEmail: institute.instituteEmail,
+      institutePhone: institute.institutePhone,
+      profileImage: institute.profileImage,
+      address: institute.address,
+      city: institute.city,
+      state: institute.state,
+      zipCode: institute.zipCode,
+      completeProfile: institute.completeProfile,
+      country: institute.country,
     });
   } else {
     res.status(404);
@@ -113,21 +98,61 @@ const updateCurrentInstitute = asyncHandler(async (req, res) => {
   }
 });
 
-const getCurrentInstitute = asyncHandler(async (req, res) => {
-  const institute = await Institute.findById(req.institute._id)
-  if(institute){
+const updateCurrentInstitute = asyncHandler(async (req, res) => {
+  const institute = await Institute.findById(req.institute._id);
+
+  if (institute) {
+    // Check if the new email is already taken by another user
+    if ( req.body.instituteEmail && req.body.instituteEmail !== institute.instituteEmail ) {
+      const emailExists = await Institute.findOne({ instituteEmail: req.body.instituteEmail });
+      if (emailExists) {
+        res.status(400);
+        throw new Error("Email is already in use");
+      }
+    }
+
+    institute.name = req.body.name || institute.name;
+    institute.instituteEmail = req.body.instituteEmail || institute.instituteEmail;
+    institute.institutePhone = req.body.institutePhone || institute.institutePhone;
+    institute.profileImage = req.body.profileImage || institute.profileImage;
+    institute.address = req.body.address || institute.address;
+    institute.country = req.body.country || institute.country; 
+    institute.city = req.body.city || institute.city;
+    institute.state = req.body.state || institute.state;
+    institute.zipCode = req.body.zipCode || institute.zipCode;
+
+    // Automatically update the profile completion status
+    if (institute.address && institute.city && institute.state && institute.zipCode) {
+      institute.completeProfile = true;
+    }
+
+    // Conditionally update password if a new one is provided
+    if (req.body.institutePassword) {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(req.body.institutePassword, salt);
+      institute.institutePassword = hashedPassword;
+    }
+
+    const updatedInstitute = await institute.save();
+
     res.json({
-      _id: institute._id,
-      name: institute.name,
-      instituteEmail: institute.instituteEmail,
-      institutePhone: institute.institutePhone,
+      _id: updatedInstitute._id,
+      name: updatedInstitute.name,
+      instituteEmail: updatedInstitute.instituteEmail,
+      institutePhone: updatedInstitute.institutePhone,
+      profileImage: updatedInstitute.profileImage,
+      address: updatedInstitute.address,
+      country: updatedInstitute.country, 
+      city: updatedInstitute.city,
+      state: updatedInstitute.state,
+      zipCode: updatedInstitute.zipCode,
+      completeProfile: updatedInstitute.completeProfile,
+      message: "Profile updated successfully",
     });
-  } else{
+  } else {
     res.status(404);
     throw new Error("Institute not found");
   }
 });
-
-
 
 export { signupInstitute, loginInstitute, logoutInstitute, updateCurrentInstitute, getCurrentInstitute };

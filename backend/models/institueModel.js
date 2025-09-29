@@ -15,31 +15,6 @@ const instituteSchema = new mongoose.Schema(
       required : true,
       minLength : 8,
     }, 
-    address: {
-      type: String,
-      // required : true,
-      trim: true,
-    },
-    city: {
-      type: String,
-      // required : true,
-      trim: true,
-    },
-    state: {
-      type: String,
-      // required : true,
-      trim: true,
-    },
-    country: {
-      type: String,
-      // required : true,
-      trim: true,
-    },
-    zipCode: {
-      type: String,
-      trim: true,
-      // required : true,
-    },
     instituteEmail: {
       type: String,
       required : true,
@@ -51,15 +26,42 @@ const instituteSchema = new mongoose.Schema(
       trim: true,
       required : true,
     },
-    instituteLogo: {
+    profileImage: {
+      type: String,
+      default: "",
+    },
+
+    country: {
+      type: String,
+      // required : true,
+      trim: true,
+    },
+    state: {
+      type: String,
+      // required : true,
+      trim: true,
+    },
+    address: {
+      type: String,
+      // required : true,
+      trim: true,
+    },
+    city: {
+      type: String,
+      // required : true,
+      trim: true,
+    },
+    zipCode: {
       type: String,
       trim: true,
+      // required : true,
     },
     completeProfile :
     {
       type : Boolean,
       default : false ,
     },
+
     // Reference to the Alumni collection
     alumni: [
       {
