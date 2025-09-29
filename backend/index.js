@@ -1,12 +1,13 @@
 // packages
 import express from "express";
 import dotenv from "dotenv";
-import path from "path";
+import path from "path";  
 import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
 
 // routes
 import instituteRoute from "./routes/instituteRoute.js";
+import studentRoute from "./routes/studentRoute.js";
 
 dotenv.config();
 
@@ -26,6 +27,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/institute', instituteRoute);
+app.use('/student', studentRoute);  
+
 
 // Server startup
 app.listen(port, () => {
